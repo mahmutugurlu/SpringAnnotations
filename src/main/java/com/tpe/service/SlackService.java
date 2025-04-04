@@ -39,17 +39,19 @@ public class SlackService implements MessageService{
 
     @PostConstruct
     public void postConstruct(){
+
         System.out.println("-------- slack service objesi üretildi.");
     }
 
     @PreDestroy
     public void preDestroy(){
+
         System.out.println("-------- slack service objesi imha edildi.");
     }
 
 
 
-    @Value("${eposta}") //@Value("${eposta}") bu sekilde olusturdugumuz dosyadaki degerleri bu fieldlera aktardik
+    @Value("${eposta}") //@Value("${eposta}") bu sekilde olusturdugumuz dosyadaki (application.properties) degerleri bu fieldlera aktardik
     private String email;
     @Value("${phone}")
     private String phone;
@@ -59,7 +61,7 @@ public class SlackService implements MessageService{
         System.out.println("phone number : "+this.phone);
     }
 
-    @Autowired
+    @Autowired //bagimliligin enjekte edilmesini saglar
     private Properties properties;
     public void showContactInfo(){
         System.out.println("email : "+properties.getProperty("mymail"));
@@ -87,5 +89,6 @@ Stateful (Durum bilgisi taşıyan) nesneler için kullanılır.
 Her istekte farklı veriyle çalışması gereken nesneler (örneğin, kullanıcı oturum bilgisi veya dosya işlemleri) için uygundur.
 -------------
 Singleton: Varsayılan olduğu için Spring genellikle bu scope'u kullanır ve çoğu servis veya repository sınıfı için yeterlidir.
-Prototype: Kısa ömürlü nesneler için kullanışlıdır, ancak manuel olarak yönetilmesi gerekebilir. Özellikle Spring konteynerinin dışında kullanılan prototip nesnelerin yaşam döngüsüne dikkat edilmelidir.
+Prototype: Kısa ömürlü nesneler için kullanışlıdır, ancak manuel olarak yönetilmesi gerekebilir.
+Özellikle Spring konteynerinin dışında kullanılan prototip nesnelerin yaşam döngüsüne dikkat edilmelidir.
  */

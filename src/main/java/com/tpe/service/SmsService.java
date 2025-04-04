@@ -20,6 +20,7 @@ Sınıfın bağımlılıklarını zorunlu kılmak için idealdir.
 
 Bağımlılıklar zorunlu olduğundan, bağımlılıklar eksik olduğunda kod derleme aşamasında hata verir.
 Sınıfın bağımlılıkları net bir şekilde görülür.
+
 2. Setter Injection (Setter Yöntem ile Enjeksiyon)
 Bağımlılıklar, setter metotları aracılığıyla enjekte edilir.
 
@@ -29,6 +30,7 @@ Bağımlılıkların isteğe bağlı olması durumunda kullanışlıdır.
 Bağımlılıklar çalışma zamanında değiştirilebilir.
 
 Bağımlılıklar zorunlu değilmiş gibi görünebilir ve yanlış konfigürasyonlara neden olabilir.
+
 3. Field Injection (Alan Üzerinden Enjeksiyon)
 Bağımlılıklar doğrudan sınıfın alanlarına enjekte edilir.
 
@@ -82,6 +84,7 @@ public class SmsService implements MessageService{
     private final Repository repo;//mysql repo
     @Autowired
     public SmsService(@Qualifier("mysqlRepository")Repository repo) {
+
         this.repo = repo;
     }
 
@@ -103,6 +106,7 @@ public class SmsService implements MessageService{
 
 @PostConstruct
     public void postConstruct(){
+
         System.out.println("-------- sms service objesi üretildi.");
     }
 @PreDestroy

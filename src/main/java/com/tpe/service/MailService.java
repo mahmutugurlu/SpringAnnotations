@@ -10,6 +10,7 @@ public class MailService implements MessageService {
     private Repository repo ;
 
     public MailService(Repository repo) {
+
         this.repo = repo;
     }
 

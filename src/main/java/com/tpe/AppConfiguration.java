@@ -33,12 +33,14 @@ public class AppConfiguration {
 
     @Bean//third party classtan bean oluşturulmasını sağlar
     public Random random(){
+
         return new Random();
     }
 
 
     @Bean
     public Scanner scanner(){
+
         return new Scanner(System.in);
     }
 
